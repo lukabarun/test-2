@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Grid Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    .container {
+      display: grid;
+      height: 100vh;
+      grid-template-areas: 
+        "header"
+        "path"
+        "content1"
+        "content2"
+        "content3"
+        "footer";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr 1fr 1fr auto;
+    }
+
+    header {
+      grid-area: header;
+      background-color: royalblue;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .path {
+      grid-area: path;
+      background-color: yellowgreen;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .content1 {
+      grid-area: content1;
+    }
+
+    .content2 {
+      grid-area: content2;
+    }
+
+    .content3 {
+      grid-area: content3;
+    }
+
+    .content1, .content2, .content3 {
+      background-color: firebrick;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      border: 2px solid black;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: gold;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      border-top: 2px solid black;
+    }
+
+    
+    @media (min-width: 681px) {
+      .container {
+        grid-template-areas: 
+          "header header header"
+          "path path path"
+          "content1 content2 content3"
+          "footer footer footer";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto 1fr auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>HEADER</header>
+    <div class="path">PATH</div>
+    <div class="content1">CONTENT</div>
+    <div class="content2">CONTENT</div>
+    <div class="content3">CONTENT</div>
+    <footer>FOOTER</footer>
+  </div>
+</body>
+</html>
